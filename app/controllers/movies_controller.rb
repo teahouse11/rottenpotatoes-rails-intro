@@ -25,14 +25,14 @@ class MoviesController < ApplicationController
       flash[:notice] = "nothing was successfully created."
     end
     if condition == "title"
-      Movie.where(Ratings: chosen_ratings).order("title")
+      Movie.where(Ratings: @chosen_ratings).order("title")
       # @movies=Movie.order("title",)
       
     elsif condition == "date"
-      Movie.where(Ratings: chosen_ratings).order("release_date").reverse_order
+      Movie.where(Ratings: @chosen_ratings).order("release_date").reverse_order
       #@movies=Movie.order("release_date DESC")
     else
-      Movie.where(Ratings: chosen_ratings).order("release_date").reverse_order
+      Movie.where(Ratings: @chosen_ratings).order("release_date").reverse_order
       #@movies = Movie.all
     end
   end
