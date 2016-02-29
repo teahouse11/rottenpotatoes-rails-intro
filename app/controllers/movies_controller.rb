@@ -12,19 +12,28 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings= ['G','PG','PG-13','R']
+    @chosen_ratings=['G','PG','PG-13','R']
+    if(params[:ratings].present?)
+      @chosen_ratings=params[:ratings]
+    end
+    
     condition=params[:sort]
+    
     if(condition.present?)
       flash[:notice] = "#{condition} was successfully created."
     else
       flash[:notice] = "nothing was successfully created."
     end
     if condition == "title"
-      @movies=Movie.order("title")
+      Movie.where(Ratings: chosen_ratings).order("title")
+      # @movies=Movie.order("title",)
       
     elsif condition == "date"
-      @movies=Movie.order("release_date DESC")
+      Movie.where(Ratings: chosen_ratings).order("release_date").reverse_order
+      #@movies=Movie.order("release_date DESC")
     else
-      @movies = Movie.all
+      Movie.where(Ratings: chosen_ratings).order("release_date").reverse_order
+      #@movies = Movie.all
     end
   end
 
