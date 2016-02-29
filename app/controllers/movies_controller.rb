@@ -17,9 +17,9 @@ class MoviesController < ApplicationController
     else
       flash[:notice] = "nothing was successfully created."
     end
-    if condition== "movie.title"
+    if condition == "title"
       @movies=Movie.order("title")
-    elsif condition == "movie.date"
+    elsif condition == "date"
       @movies=Movie.order("release_date")
     else
       @movies = Movie.all
