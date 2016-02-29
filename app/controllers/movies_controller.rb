@@ -11,11 +11,9 @@ class MoviesController < ApplicationController
   end
 
   def index
-    condition= params[:id]
-    Rails::logger.debug condition
-    if condition== title
+    if params[:id]== "title"
       @movies=Movie.order("title")
-    elsif condition == date
+    elsif params[:id] == "date"
       @movies=Movie.order("release_date")
     else
       @movies = Movie.all
