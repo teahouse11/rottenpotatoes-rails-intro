@@ -6,7 +6,7 @@
     %tr
       %th#title_header{:class=>("hilite" if params[:sort]=="title")}= link_to "Movie Title", movies_path(sort: "title")
       %th Rating
-      %th#release_date_header{:class=>("hilite" if params[:sort]=="title")}= link_to "Release Date", movies_path(sort: "date")
+      %th#release_date_header{:class=>("hilite" if params[:sort]=="date")}= link_to "Release Date", movies_path(sort: "date")
       %th More Info
   %tbody
     - @movies.each do |movie|
