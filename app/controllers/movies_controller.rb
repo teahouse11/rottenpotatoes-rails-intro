@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
 
   def index
     condition=params[:id]
-    if(params[:id].present?)
+    if(condition.present?)
       flash[:notice] = "#{condition} was successfully created."
     else
       flash[:notice] = "nothing was successfully created."
