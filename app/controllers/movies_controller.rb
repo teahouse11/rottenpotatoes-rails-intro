@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings= ['G','PG','PG-13','R']
-    @chosen_ratings=['PG','PG-13','R']
+    @chosen_ratings=['G','PG','PG-13','R']
     if(params[:ratings].present?)
       @chosen_ratings=params[:ratings]
     end
