@@ -42,11 +42,5 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
   
-  def sort_title
-    title_movies=Movies.all
-  end
-  
-  def sort_date
-  end
   
 end
