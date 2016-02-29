@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    condition= params[:sort]
+    condition= params[:id]
     if condition== "title"
       @movies=Movie.order(title)
     elsif condition == "date"
