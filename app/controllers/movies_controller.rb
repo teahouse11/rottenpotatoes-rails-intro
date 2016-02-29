@@ -14,6 +14,8 @@ class MoviesController < ApplicationController
     condition=params[:id]
     if(params[:id].present?)
       flash[:notice] = "#{condition} was successfully created."
+    else
+      flash[:notice] = "nothing was successfully created."
     end
     if condition== "title"
       @movies=Movie.order("title")
