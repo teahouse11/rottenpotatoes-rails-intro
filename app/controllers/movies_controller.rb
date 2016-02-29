@@ -19,6 +19,7 @@ class MoviesController < ApplicationController
     end
     if condition == "title"
       @movies=Movie.order("title")
+      
     elsif condition == "date"
       @movies=Movie.order("release_date")
     else
