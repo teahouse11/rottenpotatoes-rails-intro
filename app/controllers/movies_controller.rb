@@ -12,13 +12,15 @@ class MoviesController < ApplicationController
 
   def index
     condition=params[id]
-    flash[:notice] = "#{condition} was successfully created."
     if condition== "title"
       @movies=Movie.order("title")
       
     elsif condition == "date"
       @movies=Movie.order("release_date")
     else
+      if condition!=nil
+        flash[:notice] = "#{condition} was successfully created."
+      end
       @movies = Movie.all
     end
   end
