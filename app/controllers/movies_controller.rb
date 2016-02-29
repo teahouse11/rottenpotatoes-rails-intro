@@ -21,7 +21,7 @@ class MoviesController < ApplicationController
       @movies=Movie.order("title")
       
     elsif condition == "date"
-      @movies=Movie.order("release_date ASC")
+      @movies=Movie.order("release_date DESC")
     else
       @movies = Movie.all
     end
