@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def index
+    @all_ratings= ['G','PG','PG-13','R']
     condition=params[:sort]
     if(condition.present?)
       flash[:notice] = "#{condition} was successfully created."
