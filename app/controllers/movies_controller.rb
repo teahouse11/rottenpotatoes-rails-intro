@@ -26,10 +26,14 @@ class MoviesController < ApplicationController
     end
     if @condition == "title"
       @movies=Movie.where(rating: @chosen_ratings).order("title")
+
+      
     elsif @condition == "date"
       @movies=Movie.where(rating: @chosen_ratings).order("release_date").reverse_order
+      #@movies=Movie.order("release_date DESC")
     else
       @movies=Movie.where(rating: @chosen_ratings).order("release_date").reverse_order
+      #@movies = Movie.all
     end
   end
 
