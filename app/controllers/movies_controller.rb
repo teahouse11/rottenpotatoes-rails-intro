@@ -11,15 +11,15 @@ class MoviesController < ApplicationController
   end
 
   def index
-    session[:current_ratings]=nil
-    session[:current_sort]=nil
     @all_ratings= ['G','PG','PG-13','R']
     @chosen_ratings=['G','PG','PG-13','R']
     if(params[:ratings].present?)
       @chosen_ratings= params[:ratings].keys
       session[:current_ratings]=@chosen_ratings
     else
-      @chosen_ratings=session[:current_ratings]
+        if(session[:current_ratings].present?)
+          @chosen_ratings=session[:current_ratings]
+        end
     end
     @condition="title"
     if(params[:sort].present?)
@@ -27,8 +27,9 @@ class MoviesController < ApplicationController
       session[:current_sort]=@condition
       flash[:notice] = "#{@condition} was successfully created."
     else
-      @condition=session[:current_sort]
-      flash[:notice] = "nothing was successfully created."
+        if(session[:current_sort].present?)
+          @condition=session[:current_sort]
+        end
     end
     if @condition == "title"
       @movies=Movie.where(rating: @chosen_ratings).order("title")
