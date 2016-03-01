@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    
+    session.clear
     @all_ratings= ['G','PG','PG-13','R']
     @chosen_ratings=['G','PG','PG-13','R']
     if(params[:ratings].present?)
