@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
     @all_ratings= ['G','PG','PG-13','R']
     @chosen_ratings=['G','PG','PG-13','R']
     if(params[:ratings].present?)
-      @chosen_ratings=params[:ratings]
+      @chosen_ratings= (params[:ratings]).keys
     end
     
     condition=params[:sort]
