@@ -19,6 +19,8 @@ class MoviesController < ApplicationController
     else
         if(session[:current_ratings].present?)
           @chosen_ratings=session[:current_ratings]
+        else
+          session[:current_ratings]=@chosen_ratings
         end
     end
     @condition="title"
