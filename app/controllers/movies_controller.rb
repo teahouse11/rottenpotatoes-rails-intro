@@ -11,11 +11,11 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @all_ratings= ['G','PG','PG-13','R']
+    # @all_ratings= ['G','PG','PG-13','R']
     @chosen_ratings=['G','PG','PG-13','R']
-    if(params[:ratings].present?)
-      @chosen_ratings=params[:ratings]
-    end
+    # if(params[:ratings].present?)
+    #   @chosen_ratings=params[:ratings]
+    # end
     
     condition=params[:sort]
     
