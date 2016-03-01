@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
     if(params[:ratings].present?)
       @chosen_ratings= params[:ratings].keys
     end
-    @condition
+    @condition="title"
     if(params[:sort].present?)
       @condition=params[:sort]
       flash[:notice] = "#{@condition} was successfully created."
@@ -26,14 +26,10 @@ class MoviesController < ApplicationController
     end
     if @condition == "title"
       @movies=Movie.where(rating: @chosen_ratings).order("title")
-      # @movies=Movie.order("title",)
-      
     elsif @condition == "date"
       @movies=Movie.where(rating: @chosen_ratings).order("release_date").reverse_order
-      #@movies=Movie.order("release_date DESC")
     else
       @movies=Movie.where(rating: @chosen_ratings).order("release_date").reverse_order
-      #@movies = Movie.all
     end
   end
 
