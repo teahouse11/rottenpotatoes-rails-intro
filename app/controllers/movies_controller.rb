@@ -17,21 +17,19 @@ class MoviesController < ApplicationController
       @chosen_ratings= params[:ratings].keys
       session[:current_ratings]=@chosen_ratings
     else
-        if(session[:current_ratings].present?)
-          @chosen_ratings=session[:current_ratings]
-        end
+        # if(session[:current_ratings].present?)
+        #   @chosen_ratings=session[:current_ratings]
+        # end
     end
-    
     @condition="title"
-    
     if(params[:sort].present?)
       @condition=params[:sort]
       session[:current_sort]=@condition
       flash[:notice] = "#{@condition} was successfully created."
     else
-        if(session[:current_sort].present?)
-          @condition=session[:current_sort]
-        end
+        # if(session[:current_sort].present?)
+        #   @condition=session[:current_sort]
+        # #nd
     end
     if @condition == "title"
       @movies=Movie.where(rating: @chosen_ratings).order("title")
