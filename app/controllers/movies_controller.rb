@@ -15,7 +15,6 @@ class MoviesController < ApplicationController
     @chosen_ratings=['G','PG','PG-13','R']
     if(params[:ratings].present?)
       @chosen_ratings= (params[:ratings])
-      flash[:notice] = "#{chosen_ratings} was successfully created."
     end
     
     condition=params[:sort]
