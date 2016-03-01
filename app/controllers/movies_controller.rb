@@ -21,6 +21,7 @@ class MoviesController < ApplicationController
           @chosen_ratings=session[:current_ratings]
         end
     end
+    @condition="title"
     if(params[:sort].present?)
       @condition=params[:sort]
       session[:current_sort]=@condition
