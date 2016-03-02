@@ -27,7 +27,6 @@ class MoviesController < ApplicationController
     if(params[:sort].present?)
       @condition=params[:sort]
       session[:current_sort]=@condition
-      flash[:notice] = "#{@condition} was successfully created."
     else
         if(session[:current_sort].present?)
           @condition=session[:current_sort]
