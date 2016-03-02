@@ -9,7 +9,7 @@
 %table#movies
   %thead
     %tr
-      %th#title_header{:class=> @style_t}= link_to "Movie Title", movies_path(sort: "title")
+      %th#title_header{:class=> @style_t}= link_to "Movie Title",movies_path(sort: "title")
       %th Rating
       %th#release_date_header{:class=> @style_d}= link_to "Release Date", movies_path(sort: "date")
       %th More Info
